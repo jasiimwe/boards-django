@@ -84,7 +84,7 @@ def new_topic(request, id):
 
 @login_required
 def reply_topic(request, id, topic_id):
-    topic = get_object_or_404(Topic, board_id=id, id=topic_id)
+    topic = get_object_or_404(Topic, board__id=id, id=topic_id)
     if request.method == 'POST':
         form = PostForm(request.POST)
         if form.is_valid():
